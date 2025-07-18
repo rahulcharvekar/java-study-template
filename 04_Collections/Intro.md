@@ -83,3 +83,22 @@ Maps key-value pairs; keys must be unique.
 ## Diagram
 
 
+Collection
+├── List
+│ ├── ArrayList
+│ ├── LinkedList
+│ └── Vector → Stack
+├── Set
+│ ├── HashSet
+│ ├── LinkedHashSet
+│ └── TreeSet
+└── Queue
+├── LinkedList
+├── PriorityQueue
+└── ArrayDeque
+
+Map (separate)
+├── HashMap
+├── LinkedHashMap
+├── TreeMap
+└── Hashtable
