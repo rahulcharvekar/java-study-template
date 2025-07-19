@@ -78,15 +78,15 @@ Deserialization is like **reheating** it back into the original dish.
 | writeObject()      | Customize or block serialization         |
 | Externalizable     | Fully control what gets serialized       |
 
-# 🔹 What Is Deserialization in Java?
+## 🔹 What Is Deserialization in Java?
 Deserialization is the process of converting a byte stream back into a Java object. It is the reverse of serialization, where an object is converted into a byte stream to be saved to a file, sent over a network, etc.
 
-# 🔁 Serialization vs Deserialization
+## 🔁 Serialization vs Deserialization
 Process	Description
 Serialization	Java object → Byte stream (for storage/transmission)
 Deserialization	Byte stream → Java object (reconstruction)
 
-# ✅ How Deserialization Works – Step-by-Step
+## ✅ How Deserialization Works – Step-by-Step
 A byte stream (e.g., from a file or network) is provided to ObjectInputStream.
 
 Java uses class metadata and the byte stream to rebuild the object.
@@ -156,3 +156,66 @@ A serialVersionUID helps in version control during deserialization.
 Transient fields are not serialized (and hence not restored).
 
 Constructor is not called during deserialization—object is built from the stream.
+
+
+## 🔍 transient vs volatile in Java Serialization
+Though both transient and volatile are Java keywords used with variables, they serve very different purposes, especially in the context of serialization and multithreading.
+
+## ✅ 1. transient Keyword
+🔹 Purpose:
+Marks a field to be excluded from serialization.
+When an object is serialized, transient fields are not saved.
+
+### 📘 Example:
+```java
+
+class User implements Serializable {
+    String name;
+    transient String password; // This will not be serialized
+}
+```
+
+## 🧠 Behavior:
+When deserialized, password will be null (default value).
+
+Useful for sensitive data, like passwords or tokens.
+
+## ✅ 2. volatile Keyword
+🔹 Purpose:
+Marks a field so that changes to it by one thread are immediately visible to other threads.
+It is used in multithreading, not serialization.
+
+### 📘 Example:
+```java
+
+class SharedData {
+    volatile boolean flag = false;
+}
+```
+
+## 🧠 Behavior:
+Ensures visibility, not atomicity.
+
+Changes made to a volatile variable are written to main memory directly.
+
+## 📊 Key Differences Table
+Feature	transient	volatile
+Used for	Serialization	Multithreading
+Function	Prevents variable from being serialized	Ensures visibility of variable changes between threads
+Effect on serialization	Excluded from the serialized byte stream	Included in serialization (unless also marked transient)
+JVM Behavior	Skips saving the field	Flushes read/write directly to/from main memory
+Common use case	Sensitive or temporary data	Flags, stop conditions, shared variables in threads
+
+## ⚠️ Can They Be Used Together?
+Yes:
+
+```java
+
+transient volatile int tempValue;
+But it’s rare — transient is about object persistence, while volatile is about thread visibility. There's little overlap.
+```
+
+## 💡 Summary
+Use **transient** when you don't want a field to be saved during serialization.
+
+Use **volatile** when you want thread-safe visibility of a variable in a multi-threaded program.
