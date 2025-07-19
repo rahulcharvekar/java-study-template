@@ -23,7 +23,7 @@ Terminal Operation	Produces a result (e.g. collect, forEach, count)
 
 ## ✅ Example 1: Basic Stream with forEach
 
-
+```java
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,48 +36,48 @@ public class StreamExample {
              .forEach(System.out::println);
     }
 }
-
+```
 
 ⸻
 
 ## ✅ Example 2: Filtering with filter
-
+```java
 List<String> names = Arrays.asList("Ankita", "John", "Jane", "Alex");
 
 // Print names starting with "J"
 names.stream()
      .filter(name -> name.startsWith("J"))
      .forEach(System.out::println);
-
+```
 
 ⸻
 
 ## ✅ Example 3: Mapping with map
-
+```java
 List<String> names = Arrays.asList("Ankita", "John", "Jane");
 
 // Convert all names to uppercase
 names.stream()
      .map(String::toUpperCase)
      .forEach(System.out::println);
-
+```
 
 ⸻
 
 ## ✅ Example 4: Sorting with sorted
-
+```java
 List<Integer> numbers = Arrays.asList(5, 3, 1, 4, 2);
 
 // Sort and print
 numbers.stream()
        .sorted()
        .forEach(System.out::println);
-
+```
 
 ⸻
 
 ## ✅ Example 5: Collecting with collect
-
+```java
 import java.util.stream.Collectors;
 
 List<String> names = Arrays.asList("Ankita", "John", "Jane", "Alex");
@@ -88,19 +88,19 @@ List<String> upperNames = names.stream()
                                .collect(Collectors.toList());
 
 System.out.println(upperNames); // [ANKITA, JOHN, JANE, ALEX]
-
+```
 
 ⸻
 
 ## ✅ Example 6: Reduce (Summing numbers)
-
+```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
 int sum = numbers.stream()
                  .reduce(0, Integer::sum);
 
 System.out.println("Sum = " + sum); // Sum = 15
-
+```
 
 ⸻
 
