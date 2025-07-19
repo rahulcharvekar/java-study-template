@@ -1,4 +1,4 @@
-Sure! Here's an **internal explanation of how Spring Boot works** — covering its architecture, core components, and how it simplifies Java application development.
+Here's an **internal explanation of how Spring Boot works** — covering its architecture, core components, and how it simplifies Java application development.
 
 ---
 
