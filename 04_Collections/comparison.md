@@ -1,3 +1,60 @@
+Here’s a comprehensive comparison table for **Java Collections**, categorized into:
+
+1. **List Implementations**
+2. **Set Implementations**
+3. **Queue/Deque Implementations**
+4. **Map Implementations**
+
+---
+
+### ✅ 1. List Implementations
+
+| Feature / Class        | `ArrayList`               | `LinkedList`              | `Vector`                  | `Stack`                  |
+| ---------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------ |
+| **Ordering**           | Maintains insertion order | Maintains insertion order | Maintains insertion order | LIFO (Last In First Out) |
+| **Indexed Access**     | ✅ Fast (O(1))             | ❌ Slow (O(n))             | ✅ Fast (O(1))             | ✅ (via methods)          |
+| **Insertion/Deletion** | ❌ Slower (shifting)       | ✅ Fast at ends            | ❌ Slower (synchronized)   | ✅ push/pop efficient     |
+| **Thread Safe**        | ❌ No                      | ❌ No                      | ✅ Yes (legacy)            | ✅ Yes (extends Vector)   |
+| **Use Case**           | Frequent access           | Frequent insert/delete    | Legacy synchronized list  | Stack-like behavior      |
+
+---
+
+### ✅ 2. Set Implementations
+
+| Feature / Class   | `HashSet`          | `LinkedHashSet`       | `TreeSet`                 |
+| ----------------- | ------------------ | --------------------- | ------------------------- |
+| **Ordering**      | ❌ No               | ✅ Insertion order     | ✅ Sorted (natural/custom) |
+| **Duplicates**    | ❌ Not allowed      | ❌ Not allowed         | ❌ Not allowed             |
+| **Null Elements** | ✅ One allowed      | ✅ One allowed         | ❌ Not allowed             |
+| **Performance**   | ✅ Fast (O(1))      | ✅ Slightly slower     | ❌ Slower (O(log n))       |
+| **Thread Safe**   | ❌ No               | ❌ No                  | ❌ No                      |
+| **Use Case**      | Unique fast access | Predictable iteration | Sorted unique elements    |
+
+---
+
+### ✅ 3. Queue / Deque Implementations
+
+| Feature / Class  | `PriorityQueue`     | `ArrayDeque`             | `LinkedList` (as Deque) |
+| ---------------- | ------------------- | ------------------------ | ----------------------- |
+| **Ordering**     | ✅ Priority-based    | ✅ FIFO / LIFO (flexible) | ✅ FIFO / LIFO           |
+| **Null Allowed** | ❌ No                | ❌ No                     | ✅ Yes                   |
+| **Thread Safe**  | ❌ No                | ❌ No                     | ❌ No                    |
+| **Performance**  | ✅ Good              | ✅ Fast                   | ❌ Slightly slower       |
+| **Use Case**     | Priority scheduling | Double-ended queue       | Queue + List behavior   |
+
+---
+
+### ✅ 4. Map Implementations
+
+| Feature / Class      | `HashMap`                 | `LinkedHashMap`       | `TreeMap`           | `Hashtable`           | `ConcurrentHashMap`      |
+| -------------------- | ------------------------- | --------------------- | ------------------- | --------------------- | ------------------------ |
+| **Ordering**         | ❌ No                      | ✅ Insertion order     | ✅ Sorted keys       | ❌ No                  | ❌ No                     |
+| **Null Keys/Values** | ✅ 1 null key, null values | ✅ 1 null key          | ❌ No null keys      | ❌ No null keys/values | ❌ No null keys/values    |
+| **Thread Safe**      | ❌ No                      | ❌ No                  | ❌ No                | ✅ Yes (legacy)        | ✅ High performance       |
+| **Performance**      | ✅ Fast (O(1))             | ✅ Slightly slower     | ❌ Slower (O(log n)) | ❌ Slower              | ✅ Good under concurrency |
+| **Use Case**         | General-purpose map       | Predictable iteration | Sorted map          | Legacy sync map       | Multithreaded access     |
+
+---
 
 # ✅ Java Map Implementations Cheat Sheet
 
