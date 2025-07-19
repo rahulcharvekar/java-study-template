@@ -28,6 +28,7 @@ public class Person {
 }
 ```
 
+## Abstraction
 ```java
 abstract class Animal {
     abstract void makeSound();
