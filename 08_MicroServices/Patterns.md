@@ -1,4 +1,4 @@
-Certainly! Let's explore **Microservice Architecture Patterns** in Java, with a focus on **orchestration vs choreography** using examples, analogies, and code snippets.
+Let's explore **Microservice Architecture Patterns** in Java, with a focus on **orchestration vs choreography** using examples, analogies, and code snippets.
 
 ---
 
