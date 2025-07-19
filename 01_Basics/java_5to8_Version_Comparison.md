@@ -133,12 +133,24 @@ LocalDate now = LocalDate.now();
 Nashorn JavaScript Engine
 
 ## 📌 Summary Table
-Feature	Java 5	Java 6	Java 7	Java 8
-Generics	✅	✅	✅	✅
-Annotations	✅	✅	✅	✅
-try-with-resources	❌	❌	✅	✅
-Lambdas & Streams	❌	❌	❌	✅
-Default methods in interfaces	❌	❌	❌	✅
-NIO.2	❌	❌	✅	✅
-JavaScript engine (Nashorn)	❌	❌	❌	✅
-Compiler API	❌	✅	✅	✅
+
+| Feature                          | Java 5 | Java 6 | Java 7 | Java 8 |
+|----------------------------------|--------|--------|--------|--------|
+| Generics                         | ✅     | ✅     | ✅     | ✅     |
+| Annotations                      | ✅     | ✅     | ✅     | ✅     |
+| Enhanced for-loop                | ✅     | ✅     | ✅     | ✅     |
+| Autoboxing / Unboxing            | ✅     | ✅     | ✅     | ✅     |
+| Static import                    | ✅     | ✅     | ✅     | ✅     |
+| try-with-resources               | ❌     | ❌     | ✅     | ✅     |
+| Multi-catch exception            | ❌     | ❌     | ✅     | ✅     |
+| Diamond operator                 | ❌     | ❌     | ✅     | ✅     |
+| Strings in switch                | ❌     | ❌     | ✅     | ✅     |
+| NIO.2 File API                   | ❌     | ❌     | ✅     | ✅     |
+| Lambda Expressions               | ❌     | ❌     | ❌     | ✅     |
+| Stream API                       | ❌     | ❌     | ❌     | ✅     |
+| Functional Interfaces            | ❌     | ❌     | ❌     | ✅     |
+| Default methods in interfaces    | ❌     | ❌     | ❌     | ✅     |
+| Optional Class                   | ❌     | ❌     | ❌     | ✅     |
+| Date and Time API (`java.time`)  | ❌     | ❌     | ❌     | ✅     |
+| Nashorn JavaScript Engine        | ❌     | ❌     | ❌     | ✅     |
+
