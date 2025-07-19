@@ -42,3 +42,20 @@ Map<String, String> userPasswordMap = new ConcurrentHashMap<>();
 // Store hashed password
 String hashedPassword = hashPassword("mySecret123");
 userPasswordMap.put("user@example.com", hashedPassword);
+
+import java.security.SecureRandom;
+import java.security.spec.KeySpec;
+import java.util.Base64;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+
+public String hashPassword(String password) throws Exception {
+    byte[] salt = new byte[16];
+    SecureRandom.getInstanceStrong().nextBytes(salt);
+
+    KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+    SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+
+    byte[] hash = factory.generateSecret(spec).getEncoded();
+    return Base64.getEncoder().encodeToString(hash);
+}
