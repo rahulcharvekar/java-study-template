@@ -105,4 +105,3 @@ public class UserController {
 
 ---
 
-Let me know if you want a visual diagram showing the architecture layering or how they fit in a typical Spring Boot app.
