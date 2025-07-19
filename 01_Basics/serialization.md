@@ -78,3 +78,81 @@ Deserialization is like **reheating** it back into the original dish.
 | writeObject()      | Customize or block serialization         |
 | Externalizable     | Fully control what gets serialized       |
 
+# 🔹 What Is Deserialization in Java?
+Deserialization is the process of converting a byte stream back into a Java object. It is the reverse of serialization, where an object is converted into a byte stream to be saved to a file, sent over a network, etc.
+
+# 🔁 Serialization vs Deserialization
+Process	Description
+Serialization	Java object → Byte stream (for storage/transmission)
+Deserialization	Byte stream → Java object (reconstruction)
+
+# ✅ How Deserialization Works – Step-by-Step
+A byte stream (e.g., from a file or network) is provided to ObjectInputStream.
+
+Java uses class metadata and the byte stream to rebuild the object.
+
+The fields are restored exactly as they were when serialized.
+
+The deserialized object is returned as a new Java object.
+
+## 📘 Example
+### 1. Serializable Class
+
+```java
+
+import java.io.Serializable;
+
+class Person implements Serializable {
+    private static final long serialVersionUID = 1L;
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+### 2. Serialize (Save to File)
+```java
+
+import java.io.*;
+
+public class SerializeDemo {
+    public static void main(String[] args) throws IOException {
+        Person p = new Person("Alice", 30);
+
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("person.ser"));
+        out.writeObject(p);
+        out.close();
+    }
+}
+```
+
+### 3. Deserialize (Read from File)
+```java
+import java.io.*;
+
+public class DeserializeDemo {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("person.ser"));
+        Person p = (Person) in.readObject();
+        in.close();
+
+        System.out.println("Name: " + p.name + ", Age: " + p.age);
+    }
+}
+```
+
+## 🔐 Security Tip
+Deserialization can be dangerous if the source of the byte stream is untrusted—it can lead to remote code execution (RCE) attacks. Always validate or avoid deserialization from unknown sources.
+
+## 🧠 Key Points
+The class must implement Serializable.
+
+A serialVersionUID helps in version control during deserialization.
+
+Transient fields are not serialized (and hence not restored).
+
+Constructor is not called during deserialization—object is built from the stream.
