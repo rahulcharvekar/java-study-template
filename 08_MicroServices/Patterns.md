@@ -1,6 +1,4 @@
-Absolutely! Let's walk through the **essential microservice architecture patterns** (besides Saga) with **Java-based examples, analogies, and tools**.
 
----
 
 # 🧱 Microservice Architecture Patterns in Java
 
