@@ -1,4 +1,4 @@
-##🔹 Types of Exceptions
+## 🔹 Types of Exceptions
 Java has a well-structured exception hierarchy. At the top is the Throwable class, which splits into:
 
 ## Exception (checked & unchecked)
